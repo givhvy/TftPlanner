@@ -63,19 +63,21 @@ body::before {
 .logo-icon {
     width: 32px;
     height: 32px;
-    background: linear-gradient(135deg, #f4c542, #ff8000);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
-    box-shadow: 0 4px 12px rgba(244, 197, 66, 0.4);
+    filter: drop-shadow(0 4px 12px rgba(244, 197, 66, 0.4));
     transition: all 0.3s ease;
+}
+
+.logo-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .logo-icon:hover {
     transform: rotate(180deg) scale(1.1);
-    box-shadow: 0 6px 20px rgba(244, 197, 66, 0.6);
+    filter: drop-shadow(0 6px 20px rgba(244, 197, 66, 0.8));
 }
 
 .nav-links {
@@ -149,8 +151,27 @@ body::before {
 .hero-title .icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #f4c542, #e6a615);
-    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 8px 20px rgba(244, 197, 66, 0.5));
+    transition: all 0.3s ease;
+}
+
+.hero-title .icon svg {
+    width: 100%;
+    height: 100%;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.hero-title:hover .icon {
+    filter: drop-shadow(0 12px 30px rgba(244, 197, 66, 0.8));
+    transform: scale(1.1);
 }
 
 .hero-title h1 {
