@@ -1,0 +1,404 @@
+/* ========== BUILDER PAGE LAYOUT ========== */
+.builder-container {
+    display: grid;
+    grid-template-columns: 300px 1fr 320px;
+    gap: 1.5rem;
+    max-width: 1600px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* ========== PANELS ========== */
+.traits-panel,
+.champions-panel {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(20, 20, 20, 0.95));
+    border: 2px solid rgba(244, 197, 66, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(244, 197, 66, 0.2);
+}
+
+.panel-header h3 {
+    color: #f4c542;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.stats {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ========== BOARD SECTION ========== */
+.board-section {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85), rgba(15, 15, 15, 0.9));
+    border: 2px solid rgba(244, 197, 66, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.build-name-input {
+    background: rgba(26, 26, 26, 0.8);
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 300px;
+    transition: all 0.3s ease;
+}
+
+.build-name-input:focus {
+    outline: none;
+    border-color: #f4c542;
+    box-shadow: 0 0 20px rgba(244, 197, 66, 0.2);
+}
+
+.board-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    background: rgba(26, 26, 26, 0.9);
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+    border-color: #f4c542;
+    background: rgba(244, 197, 66, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #f4c542, #ff8000);
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(244, 197, 66, 0.3);
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(244, 197, 66, 0.5);
+}
+
+/* ========== HEXAGON BOARD ========== */
+.hexagon-board {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: radial-gradient(circle, rgba(244, 197, 66, 0.05) 0%, transparent 70%);
+    border-radius: 12px;
+}
+
+.hex-cell {
+    width: 90px;
+    height: 90px;
+    background: rgba(30, 30, 30, 0.6);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hex-cell:hover {
+    background: rgba(244, 197, 66, 0.1);
+    border-color: rgba(244, 197, 66, 0.5);
+    transform: scale(1.05);
+}
+
+.hex-cell.occupied {
+    background: rgba(244, 197, 66, 0.15);
+    border-color: #f4c542;
+}
+
+.hex-cell.drag-over {
+    background: rgba(244, 197, 66, 0.3);
+    border-color: #f4c542;
+    box-shadow: 0 0 20px rgba(244, 197, 66, 0.4);
+}
+
+.hex-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.hex-cell .remove-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4757;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.hex-cell.occupied:hover .remove-btn {
+    display: flex;
+}
+
+/* ========== CHAMPIONS GRID ========== */
+.search-input {
+    background: rgba(26, 26, 26, 0.8);
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: #fff;
+    width: 100%;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #f4c542;
+    box-shadow: 0 0 15px rgba(244, 197, 66, 0.2);
+}
+
+.cost-filters {
+    display: flex;
+    gap: 0.4rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.cost-filter {
+    flex: 1;
+    min-width: 45px;
+    background: rgba(26, 26, 26, 0.8);
+    border: 2px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 0.5rem;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cost-filter:hover {
+    border-color: #f4c542;
+    background: rgba(244, 197, 66, 0.1);
+}
+
+.cost-filter.active {
+    background: linear-gradient(135deg, #f4c542, #ff8000);
+    color: #000;
+    border-color: #f4c542;
+}
+
+.champions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    max-height: calc(100vh - 350px);
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.champions-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.champions-grid::-webkit-scrollbar-track {
+    background: rgba(26, 26, 26, 0.5);
+    border-radius: 4px;
+}
+
+.champions-grid::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f4c542, #ff8000);
+    border-radius: 4px;
+}
+
+.champ-item {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+.champ-item:active {
+    cursor: grabbing;
+}
+
+.champ-item:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    z-index: 10;
+}
+
+.champ-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.champ-item .cost-badge {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    color: #fff;
+    min-width: 24px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border: 2px solid;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+/* ========== TRAITS LIST ========== */
+.traits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.trait-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.trait-item.active {
+    border-color: #f4c542;
+    background: rgba(244, 197, 66, 0.1);
+}
+
+.trait-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgba(244, 197, 66, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.trait-info {
+    flex: 1;
+}
+
+.trait-name {
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.trait-count {
+    color: #f4c542;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.placeholder {
+    text-align: center;
+    color: #666;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1400px) {
+    .builder-container {
+        grid-template-columns: 280px 1fr 280px;
+    }
+
+    .hex-cell {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .builder-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .board-section {
+        order: 1;
+    }
+
+    .champions-panel {
+        order: 2;
+    }
+
+    .traits-panel {
+        order: 3;
+    }
+}
