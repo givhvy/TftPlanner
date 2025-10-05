@@ -313,57 +313,85 @@ body::before {
 
 /* ========== TIER BADGES ========== */
 .tier-badge {
-    width: 90px;
-    min-height: 100px;
+    width: 140px;
+    min-height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 20px;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 4rem;
     position: relative;
     flex-shrink: 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 3px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.tier-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    pointer-events: none;
+}
+
+.tier-badge::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
 }
 
 .tier-badge:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
 .tier-label {
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 0.3rem;
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+    opacity: 0.9;
 }
 
 .tier-s {
-    background: linear-gradient(135deg, #ff4757, #ff6348);
-    color: #000;
+    background: linear-gradient(135deg, #ff3860, #ff5252);
+    color: #1a0a0a;
 }
 
 .tier-a {
-    background: linear-gradient(135deg, #ffa502, #ff7f00);
-    color: #000;
+    background: linear-gradient(135deg, #ff8c42, #ffa552);
+    color: #1a0a0a;
 }
 
 .tier-b {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
-    color: #000;
+    background: linear-gradient(135deg, #ffe259, #ffd659);
+    color: #1a0a0a;
 }
 
 .tier-c {
-    background: linear-gradient(135deg, #7bed9f, #2ed573);
-    color: #000;
+    background: linear-gradient(135deg, #5efc82, #57e074);
+    color: #0a1a0a;
 }
 
 .tier-d {
-    background: linear-gradient(135deg, #70a1ff, #1e90ff);
-    color: #000;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #0a0a1a;
 }
 
 /* ========== CHAMPIONS CONTAINER ========== */
