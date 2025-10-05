@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFT Academy | Best TFT Comps</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-icon">🔥</div>
+                <span>TFT Academy</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="btn-primary">Tierlist</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Study Hall</a></li>
+                <li><a href="#">Tools</a></li>
+                <li><a href="#">Set Info</a></li>
+                <li><a href="#">Patreon</a></li>
+                <li><a href="#" class="login-btn">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="patch-info">
+            <span>Patch</span>
+            <strong id="patchVersion">15.5</strong>
+            <span>•</span>
+            <span>Last Updated</span>
+            <strong id="lastUpdated">15 Hours Ago</strong>
+        </div>
+
+        <div class="hero-title">
+            <div class="icon"></div>
+            <h1>
+                <span class="comps">COMPS</span>
+                <span class="arrow">▸</span>
+                <span class="tierlist">TIERLIST</span>
+            </h1>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="comps">Comps</div>
+            <div class="tab" data-tab="items">Items</div>
+            <div class="tab" data-tab="augments">Augments</div>
+        </div>
+
+        <div class="controls">
+            <input type="text" class="search-box" placeholder="Search" id="searchBox">
+            <button class="comp-style-btn">Comp Style ▼</button>
+        </div>
+    </section>
+
+    <main class="content" id="tierContent">
+        <!-- Tier lists will be dynamically generated here -->
+    </main>
+
+    <div class="modal" id="champModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn">×</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2023 - 2025 TFT ACADEMY. TFT ACADEMY isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games<br>or anyone officially involved in producing or managing Riot Games properties.<br>Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+    </footer>
+
+    <!-- Load JavaScript modules -->
+    <script src="js/config.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFT Academy | Best TFT Comps</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #1a1a1a;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #2a2a2a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #f4c542, #e6a615);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            background: #2a2a2a;
+        }
+
+        .nav-links .btn-primary {
+            background: #f4c542;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .nav-links .btn-primary:hover {
+            background: #e6a615;
+        }
+
+        .nav-links .login-btn {
+            border: 1px solid #3a3a3a;
+        }
+
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .patch-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #1a1a1a;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .patch-info span {
+            color: #888;
+        }
+
+        .patch-info strong {
+            color: #fff;
+        }
+
+        .hero-title {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f4c542, #e6a615);
+            border-radius: 12px;
+        }
+
+        .hero-title h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-title .comps {
+            color: #fff;
+        }
+
+        .hero-title .arrow {
+            color: #f4c542;
+        }
+
+        .hero-title .tierlist {
+            color: #f4c542;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2rem;
+            border-bottom: 2px solid #2a2a2a;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 1rem 0;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tab.active {
+            color: #f4c542;
+            border-bottom-color: #f4c542;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 0.7rem 1.2rem;
+            color: #fff;
+            width: 300px;
+        }
+
+        .comp-style-btn {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 0.7rem 1.2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .tier-section {
+            margin-bottom: 2rem;
+        }
+
+        .tier-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: stretch;
+        }
+
+        .tier-badge {
+            width: 90px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 3rem;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .tier-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+        }
+
+        .tier-s {
+            background: linear-gradient(135deg, #ff4757, #ff6348);
+            color: #000;
+        }
+
+        .tier-a {
+            background: linear-gradient(135deg, #ffa502, #ff7f00);
+            color: #000;
+        }
+
+        .tier-b {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+        }
+
+        .tier-c {
+            background: linear-gradient(135deg, #7bed9f, #2ed573);
+            color: #000;
+        }
+
+        .tier-d {
+            background: linear-gradient(135deg, #70a1ff, #1e90ff);
+            color: #000;
+        }
+
+        .champions-container {
+            flex: 1;
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            border: 2px solid;
+            min-height: 100px;
+        }
+
+        .tier-s + .champions-container {
+            border-color: #ff4757;
+        }
+
+        .tier-a + .champions-container {
+            border-color: #ffa502;
+        }
+
+        .tier-b + .champions-container {
+            border-color: #ffd700;
+        }
+
+        .tier-c + .champions-container {
+            border-color: #7bed9f;
+        }
+
+        .tier-d + .champions-container {
+            border-color: #70a1ff;
+        }
+
+        .champion-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 3px solid;
+        }
+
+        .champion-icon:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .champion-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cost-badge {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #f4c542;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .cost-1 { border-color: #808080; }
+        .cost-2 { border-color: #1eff00; }
+        .cost-3 { border-color: #0070dd; }
+        .cost-4 { border-color: #a335ee; }
+        .cost-5 { border-color: #ff8000; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border-radius: 16px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f4c542;
+            color: #000;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .modal-header {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .modal-champion-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 4px solid #f4c542;
+        }
+
+        .modal-champion-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-info .playstyle {
+            color: #f4c542;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .traits-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .trait-badge {
+            background: #2a2a2a;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .comp-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .detail-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #f4c542;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 4rem;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .situational-badge {
+            display: inline-block;
+            background: #00d9ff;
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title h1 {
+                font-size: 2rem;
+            }
+
+            .tier-row {
+                flex-direction: column;
+            }
+
+            .champions-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-icon">🔥</div>
+                <span>TFT Academy</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="btn-primary">Tierlist</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Study Hall</a></li>
+                <li><a href="#">Tools</a></li>
+                <li><a href="#">Set Info</a></li>
+                <li><a href="#">Patreon</a></li>
+                <li><a href="#" class="login-btn">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="patch-info">
+            <span>Patch</span>
+            <strong>15.5</strong>
+            <span>•</span>
+            <span>Last Updated</span>
+            <strong>15 Hours Ago</strong>
+        </div>
+
+        <div class="hero-title">
+            <div class="icon"></div>
+            <h1>
+                <span class="comps">COMPS</span>
+                <span class="arrow">▸</span>
+                <span class="tierlist">TIERLIST</span>
+            </h1>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active">Comps</div>
+            <div class="tab">Items</div>
+            <div class="tab">Augments</div>
+        </div>
+
+        <div class="controls">
+            <input type="text" class="search-box" placeholder="Search" id="searchBox">
+            <button class="comp-style-btn">Comp Style ▼</button>
+        </div>
+    </section>
+
+    <main class="content" id="tierContent">
+        <!-- Tier lists will be dynamically generated here -->
+    </main>
+
+    <div class="modal" id="champModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2023 - 2025 TFT ACADEMY. TFT ACADEMY isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games<br>or anyone officially involved in producing or managing Riot Games properties.<br>Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+    </footer>
+
+    <script>
+        // TFT Set 13 Data - FIXED Community Dragon API URLs
+        const tierData = {
+            S: [
+                { name: 'Ahri', cost: 2, apiName: 'tft13_ahri' },
+                { name: 'Jinx', cost: 2, apiName: 'tft13_jinx' },
+                { name: 'Mordekaiser', cost: 3, apiName: 'tft13_mordekaiser' }
+            ],
+            A: [
+                { name: 'Draven', cost: 4, apiName: 'tft13_draven' },
+                { name: 'Silco', cost: 5, apiName: 'tft13_silco' },
+                { name: 'Garen', cost: 1, apiName: 'tft13_garen' },
+                { name: 'Zoe', cost: 1, apiName: 'tft13_zoe' },
+                { name: 'Nami', cost: 4, apiName: 'tft13_nami' }
+            ],
+            B: [
+                { name: 'Vi', cost: 2, apiName: 'tft13_vi' },
+                { name: 'Ekko', cost: 3, apiName: 'tft13_ekko' },
+                { name: 'Vex', cost: 3, apiName: 'tft13_vex' },
+                { name: 'Tristana', cost: 2, apiName: 'tft13_tristana' },
+                { name: 'Urgot', cost: 3, apiName: 'tft13_urgot' },
+                { name: 'Swain', cost: 4, apiName: 'tft13_swain' },
+                { name: 'Nocturne', cost: 4, apiName: 'tft13_nocturne' },
+                { name: 'LeBlanc', cost: 5, apiName: 'tft13_leblanc' }
+            ],
+            C: [
+                { name: 'Renata', cost: 1, apiName: 'tft13_renata' },
+                { name: 'Singed', cost: 1, apiName: 'tft13_singed' },
+                { name: 'Zyra', cost: 2, apiName: 'tft13_zyra' },
+                { name: 'Blitzcrank', cost: 2, apiName: 'tft13_blitzcrank' },
+                { name: 'Ziggs', cost: 3, apiName: 'tft13_ziggs' },
+                { name: 'Cassiopeia', cost: 3, apiName: 'tft13_cassiopeia' },
+                { name: 'Zeri', cost: 4, apiName: 'tft13_zeri' },
+                { name: 'Jayce', cost: 5, apiName: 'tft13_jayce' },
+                { name: 'Caitlyn', cost: 5, apiName: 'tft13_caitlyn' }
+            ],
+            D: [
+                { name: 'Darius', cost: 1, apiName: 'tft13_darius' },
+                { name: 'Powder', cost: 1, apiName: 'tft13_powder' },
+                { name: 'Rell', cost: 2, apiName: 'tft13_rell' },
+                { name: 'Leona', cost: 2, apiName: 'tft13_leona' }
+            ]
+        };
+
+        // FIXED: Community Dragon API URL for TFT champions
+        function getChampionImageUrl(apiName) {
+            // Use the correct Community Dragon path for TFT champions
+            return `https://raw.communitydragon.org/latest/cdragon/tft/assets/tft-champion/${apiName}.png`;
+        }
+
+        function createChampionIcon(champ) {
+            const icon = document.createElement('div');
+            icon.className = `champion-icon cost-${champ.cost}`;
+            icon.onclick = () => showChampionModal(champ);
+
+            const img = document.createElement('img');
+            img.src = getChampionImageUrl(champ.apiName);
+            img.alt = champ.name;
+
+            // Multiple fallback URLs if the primary fails
+            img.onerror = function() {
+                const champName = champ.apiName.replace('tft13_', '');
+                // Fallback 1: Try Data Dragon
+                this.onerror = function() {
+                    // Fallback 2: Try base game character icon
+                    this.onerror = function() {
+                        // Final fallback: SVG placeholder with champion name
+                        this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Crect fill="%23333" width="64" height="64"/%3E%3Ctext x="50%25" y="50%25" fill="%23fff" font-size="10" text-anchor="middle" dominant-baseline="middle"%3E' + champ.name + '%3C/text%3E%3C/svg%3E';
+                    };
+                    this.src = `https://raw.communitydragon.org/latest/game/assets/characters/${champName}/hud/${champName}_square.png`;
+                };
+                this.src = `https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/${champName}.png`;
+            };
+
+            const badge = document.createElement('div');
+            badge.className = 'cost-badge';
+            badge.textContent = '★'.repeat(champ.cost);
+
+            icon.appendChild(img);
+            icon.appendChild(badge);
+
+            return icon;
+        }
+
+        function renderTierList() {
+            const content = document.getElementById('tierContent');
+            content.innerHTML = '';
+
+            Object.entries(tierData).forEach(([tier, champions]) => {
+                const tierRow = document.createElement('div');
+                tierRow.className = 'tier-row';
+
+                const tierBadge = document.createElement('div');
+                tierBadge.className = `tier-badge tier-${tier.toLowerCase()}`;
+                tierBadge.innerHTML = `${tier}<div class="tier-label">${tier} Tier</div>`;
+
+                const championsContainer = document.createElement('div');
+                championsContainer.className = 'champions-container';
+
+                champions.forEach(champ => {
+                    championsContainer.appendChild(createChampionIcon(champ));
+                });
+
+                tierRow.appendChild(tierBadge);
+                tierRow.appendChild(championsContainer);
+                content.appendChild(tierRow);
+            });
+
+            // Add situational tier
+            const situationalRow = document.createElement('div');
+            situationalRow.className = 'tier-row';
+            situationalRow.innerHTML = `
+                <div class="tier-badge tier-d">
+                    <div class="situational-badge">SITUATIONAL</div>
+                </div>
+                <div class="champions-container">
+                    <div style="color: #666; text-align: center; width: 100%;">
+                        Comps that work in specific situations or with perfect items
+                    </div>
+                </div>
+            `;
+            content.appendChild(situationalRow);
+        }
+
+        function showChampionModal(champ) {
+            const modal = document.getElementById('champModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-champion-large">
+                        <img src="${getChampionImageUrl(champ.apiName)}" alt="${champ.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"150\\" height=\\"150\\"%3E%3Crect fill=\\"%23333\\" width=\\"150\\" height=\\"150\\"/%3E%3Ctext x=\\"50%25\\" y=\\"50%25\\" fill=\\"%23fff\\" font-size=\\"20\\" text-anchor=\\"middle\\" dominant-baseline=\\"middle\\"%3E${champ.name}%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="modal-info">
+                        <h2>${champ.name} Comp</h2>
+                        <div class="playstyle">PLAYSTYLE: ${champ.cost}-COST CARRY</div>
+                        <div class="traits-row">
+                            <div class="trait-badge">⚔️ 3 Trait 1</div>
+                            <div class="trait-badge">🛡️ 2 Trait 2</div>
+                            <div class="trait-badge">✨ 2 Trait 3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comp-details">
+                    <div class="detail-section">
+                        <h3>Recommended Items</h3>
+                        <p>Best items for ${champ.name} based on current meta</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Positioning</h3>
+                        <p>Optimal board placement for maximum effectiveness</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>When to Play</h3>
+                        <p>Look for ${champ.name} early and build around synergies</p>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('champModal').classList.remove('active');
+        }
+
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.champion-icon').forEach(icon => {
+                const champName = icon.querySelector('img').alt.toLowerCase();
+                icon.style.display = champName.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Close modal on background click
+        document.getElementById('champModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Initialize
+        renderTierList();
+    </script>
+</body>
+</html>
