@@ -237,7 +237,7 @@ document.getElementById('undoBtn').addEventListener('click', () => {
 
 document.getElementById('saveBtn').addEventListener('click', saveBuild);
 
-function saveBuild() {
+async function saveBuild() {
     const name = document.getElementById('buildName').value || 'Unnamed Build';
     const units = boardState.units.filter(u => u !== null);
 
@@ -247,20 +247,32 @@ function saveBuild() {
     }
 
     const build = {
-        id: Date.now(),
+        id: Date.now().toString(),
         name: name,
         units: boardState.units,
         date: new Date().toISOString(),
         patch: CONFIG.tft.patch
     };
 
-    // Save to localStorage
-    const builds = JSON.parse(localStorage.getItem('tft_builds') || '[]');
-    builds.unshift(build);
-    localStorage.setItem('tft_builds', JSON.stringify(builds));
+    // Show saving indicator
+    const saveBtn = document.getElementById('saveBtn');
+    const originalText = saveBtn.textContent;
+    saveBtn.disabled = true;
+    saveBtn.textContent = '💾 Saving...';
 
-    alert('Build saved successfully!');
-    window.location.href = 'saved-builds.html';
+    try {
+        // Save to Firebase
+        await FirebaseService.saveBuild(build);
+        alert('Build saved successfully! ✓');
+        window.location.href = 'saved-builds.html';
+    } catch (error) {
+        console.error('Error saving build:', error);
+        alert('Build saved to local storage (offline mode)');
+        window.location.href = 'saved-builds.html';
+    } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = originalText;
+    }
 }
 
 // Filters

@@ -4,25 +4,53 @@
  */
 
 // Load and display all saved builds
-function loadSavedBuilds() {
-    const builds = JSON.parse(localStorage.getItem('tft_builds') || '[]');
+async function loadSavedBuilds() {
     const grid = document.getElementById('buildsGrid');
     const emptyState = document.getElementById('emptyState');
 
-    if (builds.length === 0) {
-        grid.style.display = 'none';
-        emptyState.style.display = 'block';
-        return;
-    }
-
-    grid.style.display = 'grid';
+    // Show loading state
+    grid.innerHTML = '<div class="loading">Loading builds...</div>';
+    grid.style.display = 'block';
     emptyState.style.display = 'none';
-    grid.innerHTML = '';
 
-    builds.forEach(build => {
-        const card = createBuildCard(build);
-        grid.appendChild(card);
-    });
+    try {
+        // Load from Firebase
+        const builds = await FirebaseService.loadBuilds();
+
+        if (builds.length === 0) {
+            grid.style.display = 'none';
+            emptyState.style.display = 'block';
+            return;
+        }
+
+        grid.style.display = 'grid';
+        grid.innerHTML = '';
+
+        builds.forEach(build => {
+            const card = createBuildCard(build);
+            grid.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error loading builds:', error);
+        grid.innerHTML = '<div class="error">Failed to load builds. Using offline data...</div>';
+
+        // Fallback to localStorage
+        const builds = JSON.parse(localStorage.getItem('tft_builds') || '[]');
+
+        if (builds.length === 0) {
+            grid.style.display = 'none';
+            emptyState.style.display = 'block';
+            return;
+        }
+
+        grid.style.display = 'grid';
+        grid.innerHTML = '';
+
+        builds.forEach(build => {
+            const card = createBuildCard(build);
+            grid.appendChild(card);
+        });
+    }
 }
 
 // Create a build card
@@ -201,14 +229,17 @@ function shareBuild(build) {
 }
 
 // Delete build
-function deleteBuild(buildId) {
+async function deleteBuild(buildId) {
     if (!confirm('Delete this build?')) return;
 
-    let builds = JSON.parse(localStorage.getItem('tft_builds') || '[]');
-    builds = builds.filter(b => b.id !== buildId);
-    localStorage.setItem('tft_builds', JSON.stringify(builds));
-
-    loadSavedBuilds();
+    try {
+        // Delete from Firebase
+        await FirebaseService.deleteBuild(buildId);
+        await loadSavedBuilds();
+    } catch (error) {
+        console.error('Error deleting build:', error);
+        alert('Failed to delete build. Please try again.');
+    }
 }
 
 // Initialize
