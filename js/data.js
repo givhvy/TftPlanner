@@ -249,37 +249,116 @@ const TFT_DATA = {
         }
     },
 
+    // Complete champion data organized by cost
+    champions: {
+        cost1: [
+            { name: 'Aatrox', cost: 1, apiName: 'TFT15_Aatrox', traits: ['Mighty Mech', 'Heavyweight', 'Juggernaut'] },
+            { name: 'Ezreal', cost: 1, apiName: 'TFT15_Ezreal', traits: ['Battle Academia', 'Prodigy'] },
+            { name: 'Garen', cost: 1, apiName: 'TFT15_Garen', traits: ['Battle Academia', 'Bastion'] },
+            { name: 'Gnar', cost: 1, apiName: 'TFT15_Gnar', traits: ['Luchador', 'Sniper'] },
+            { name: 'Kalista', cost: 1, apiName: 'TFT15_Kalista', traits: ['Soul Fighter', 'Executioner'] },
+            { name: 'Kayle', cost: 1, apiName: 'TFT15_Kayle', traits: ['Wraith', 'Duelist'] },
+            { name: 'Kennen', cost: 1, apiName: 'TFT15_Kennen', traits: ['Supreme Cells', 'Protector', 'Sorcerer'] },
+            { name: 'Lucian', cost: 1, apiName: 'TFT15_Lucian', traits: ['Mighty Mech', 'Sorcerer'] },
+            { name: 'Malphite', cost: 1, apiName: 'TFT15_Malphite', traits: ['The Crew', 'Protector'] },
+            { name: 'Naafiri', cost: 1, apiName: 'TFT15_Naafiri', traits: ['Soul Fighter', 'Juggernaut'] },
+            { name: 'Rell', cost: 1, apiName: 'TFT15_Rell', traits: ['Star Guardian', 'Bastion'] },
+            { name: 'Sivir', cost: 1, apiName: 'TFT15_Sivir', traits: ['The Crew', 'Sniper'] },
+            { name: 'Syndra', cost: 1, apiName: 'TFT15_Syndra', traits: ['Crystal Gambit', 'Star Guardian', 'Prodigy'] },
+            { name: 'Zac', cost: 1, apiName: 'TFT15_Zac', traits: ['Wraith', 'Heavyweight'] }
+        ],
+        cost2: [
+            { name: 'Dr. Mundo', cost: 2, apiName: 'TFT15_DrMundo', traits: ['Luchador', 'Juggernaut'] },
+            { name: 'Gangplank', cost: 2, apiName: 'TFT15_Gangplank', traits: ['Mighty Mech', 'Duelist'] },
+            { name: 'Janna', cost: 2, apiName: 'TFT15_Janna', traits: ['Crystal Gambit', 'Protector', 'Strategist'] },
+            { name: 'Jhin', cost: 2, apiName: 'TFT15_Jhin', traits: ['Wraith', 'Sniper'] },
+            { name: "Kai'Sa", cost: 2, apiName: 'TFT15_KaiSa', traits: ['Supreme Cells', 'Duelist'] },
+            { name: 'Katarina', cost: 2, apiName: 'TFT15_Katarina', traits: ['Battle Academia', 'Executioner'] },
+            { name: 'Kobuko', cost: 2, apiName: 'TFT15_Kobuko', traits: ['Mentor', 'Heavyweight'] },
+            { name: 'Lux', cost: 2, apiName: 'TFT15_Lux', traits: ['Soul Fighter', 'Sorcerer'] },
+            { name: 'Rakan', cost: 2, apiName: 'TFT15_Rakan', traits: ['Battle Academia', 'Protector'] },
+            { name: 'Shen', cost: 2, apiName: 'TFT15_Shen', traits: ['The Crew', 'Bastion', 'Edgelord'] },
+            { name: 'Vi', cost: 2, apiName: 'TFT15_Vi', traits: ['Crystal Gambit', 'Juggernaut'] },
+            { name: 'Xayah', cost: 2, apiName: 'TFT15_Xayah', traits: ['Star Guardian', 'Edgelord'] },
+            { name: 'Xin Zhao', cost: 2, apiName: 'TFT15_XinZhao', traits: ['Soul Fighter', 'Bastion'] }
+        ],
+        cost3: [
+            { name: 'Ahri', cost: 3, apiName: 'TFT15_Ahri', traits: ['Star Guardian', 'Sorcerer'] },
+            { name: 'Caitlyn', cost: 3, apiName: 'TFT15_Caitlyn', traits: ['Battle Academia', 'Sniper'] },
+            { name: 'Darius', cost: 3, apiName: 'TFT15_Darius', traits: ['Supreme Cells', 'Heavyweight'] },
+            { name: 'Jayce', cost: 3, apiName: 'TFT15_Jayce', traits: ['Battle Academia', 'Heavyweight'] },
+            { name: "Kog'Maw", cost: 3, apiName: 'TFT15_KogMaw', traits: ['Monster Trainer'] },
+            { name: 'Lulu', cost: 3, apiName: 'TFT15_Lulu', traits: ['Monster Trainer'] },
+            { name: 'Malzahar', cost: 3, apiName: 'TFT15_Malzahar', traits: ['Wraith', 'Prodigy'] },
+            { name: 'Neeko', cost: 3, apiName: 'TFT15_Neeko', traits: ['Star Guardian', 'Protector'] },
+            { name: 'Rammus', cost: 3, apiName: 'TFT15_Rammus', traits: ['Monster Trainer'] },
+            { name: 'Senna', cost: 3, apiName: 'TFT15_Senna', traits: ['Mighty Mech', 'Executioner'] },
+            { name: 'Smolder', cost: 3, apiName: 'TFT15_Smolder', traits: ['Monster Trainer'] },
+            { name: 'Swain', cost: 3, apiName: 'TFT15_Swain', traits: ['Crystal Gambit', 'Bastion', 'Sorcerer'] },
+            { name: 'Udyr', cost: 3, apiName: 'TFT15_Udyr', traits: ['Mentor', 'Duelist', 'Juggernaut'] },
+            { name: 'Viego', cost: 3, apiName: 'TFT15_Viego', traits: ['Soul Fighter', 'Duelist'] },
+            { name: 'Yasuo', cost: 3, apiName: 'TFT15_Yasuo', traits: ['Mentor', 'Edgelord'] },
+            { name: 'Ziggs', cost: 3, apiName: 'TFT15_Ziggs', traits: ['The Crew', 'Strategist'] }
+        ],
+        cost4: [
+            { name: 'Akali', cost: 4, apiName: 'TFT15_Akali', traits: ['Supreme Cells', 'Executioner'] },
+            { name: 'Ashe', cost: 4, apiName: 'TFT15_Ashe', traits: ['Crystal Gambit', 'Duelist'] },
+            { name: 'Jarvan IV', cost: 4, apiName: 'TFT15_JarvanIV', traits: ['Mighty Mech', 'Strategist'] },
+            { name: 'Jinx', cost: 4, apiName: 'TFT15_Jinx', traits: ['Star Guardian', 'Sniper'] },
+            { name: "K'Sante", cost: 4, apiName: 'TFT15_KSante', traits: ['Wraith', 'Protector'] },
+            { name: 'Karma', cost: 4, apiName: 'TFT15_Karma', traits: ['Mighty Mech', 'Sorcerer'] },
+            { name: 'Leona', cost: 4, apiName: 'TFT15_Leona', traits: ['Battle Academia', 'Bastion'] },
+            { name: 'Poppy', cost: 4, apiName: 'TFT15_Poppy', traits: ['Star Guardian', 'Heavyweight'] },
+            { name: 'Ryze', cost: 4, apiName: 'TFT15_Ryze', traits: ['Mentor', 'Executioner', 'Strategist'] },
+            { name: 'Samira', cost: 4, apiName: 'TFT15_Samira', traits: ['Soul Fighter', 'Edgelord'] },
+            { name: 'Sett', cost: 4, apiName: 'TFT15_Sett', traits: ['Soul Fighter', 'Juggernaut'] },
+            { name: 'Volibear', cost: 4, apiName: 'TFT15_Volibear', traits: ['Luchador', 'Edgelord'] },
+            { name: 'Yuumi', cost: 4, apiName: 'TFT15_Yuumi', traits: ['Battle Academia', 'Prodigy'] }
+        ],
+        cost5: [
+            { name: 'Braum', cost: 5, apiName: 'TFT15_Braum', traits: ['The Champ', 'Luchador', 'Bastion'] },
+            { name: 'Ekko', cost: 5, apiName: 'TFT15_Ekko', traits: [] },
+            { name: 'Gwen', cost: 5, apiName: 'TFT15_Gwen', traits: ['Soul Fighter', 'Sorcerer'] },
+            { name: 'Lee Sin', cost: 5, apiName: 'TFT15_LeeSin', traits: ['Stance Master'] },
+            { name: 'Seraphine', cost: 5, apiName: 'TFT15_Seraphine', traits: ['Star Guardian', 'Prodigy'] },
+            { name: 'Twisted Fate', cost: 5, apiName: 'TFT15_TwistedFate', traits: ['Rogue Captain', 'The Crew'] },
+            { name: 'Varus', cost: 5, apiName: 'TFT15_Varus', traits: ['Wraith', 'Sniper'] },
+            { name: 'Yone', cost: 5, apiName: 'TFT15_Yone', traits: ['Mighty Mech', 'Edgelord'] },
+            { name: 'Zyra', cost: 5, apiName: 'TFT15_Zyra', traits: ['Rosemother', 'Crystal Gambit'] }
+        ]
+    },
+
     tiers: {
         S: [
-            { name: 'Braum', cost: 1, apiName: 'TFT15_Braum', traits: ['The Champ', 'Luchador', 'Bastion'] },
+            { name: 'Braum', cost: 5, apiName: 'TFT15_Braum', traits: ['The Champ', 'Luchador', 'Bastion'] },
             { name: 'Seraphine', cost: 5, apiName: 'TFT15_Seraphine', traits: ['Star Guardian', 'Prodigy'] },
-            { name: 'Zyra', cost: 2, apiName: 'TFT15_Zyra', traits: ['Rosemother', 'Crystal Gambit'] },
-            { name: 'Varus', cost: 4, apiName: 'TFT15_Varus', traits: ['Wraith', 'Sniper'] }
+            { name: 'Zyra', cost: 5, apiName: 'TFT15_Zyra', traits: ['Rosemother', 'Crystal Gambit'] },
+            { name: 'Varus', cost: 5, apiName: 'TFT15_Varus', traits: ['Wraith', 'Sniper'] }
         ],
         A: [
             { name: 'Gwen', cost: 5, apiName: 'TFT15_Gwen', traits: ['Soul Fighter', 'Sorcerer'] },
-            { name: 'Viego', cost: 5, apiName: 'TFT15_Viego', traits: ['Soul Fighter', 'Duelist'] },
-            { name: 'Shen', cost: 5, apiName: 'TFT15_Shen', traits: ['The Crew', 'Edgelord', 'Bastion'] },
+            { name: 'Viego', cost: 3, apiName: 'TFT15_Viego', traits: ['Soul Fighter', 'Duelist'] },
+            { name: 'Shen', cost: 2, apiName: 'TFT15_Shen', traits: ['The Crew', 'Edgelord', 'Bastion'] },
             { name: 'Jinx', cost: 4, apiName: 'TFT15_Jinx', traits: ['Star Guardian', 'Sniper'] },
             { name: 'Akali', cost: 4, apiName: 'TFT15_Akali', traits: ['Supreme Cells', 'Executioner'] },
-            { name: 'Karma', cost: 3, apiName: 'TFT15_Karma', traits: ['Mighty Mech', 'Sorcerer'] }
+            { name: 'Karma', cost: 4, apiName: 'TFT15_Karma', traits: ['Mighty Mech', 'Sorcerer'] }
         ],
         B: [
-            { name: 'KSante', cost: 5, apiName: 'TFT15_KSante', traits: ['Wraith', 'Protector'] },
+            { name: "K'Sante", cost: 4, apiName: 'TFT15_KSante', traits: ['Wraith', 'Protector'] },
             { name: 'Yuumi', cost: 4, apiName: 'TFT15_Yuumi', traits: ['Battle Academia', 'Prodigy'] },
             { name: 'Volibear', cost: 4, apiName: 'TFT15_Volibear', traits: ['Luchador', 'Edgelord'] },
-            { name: 'Senna', cost: 4, apiName: 'TFT15_Senna', traits: ['Mighty Mech', 'Executioner'] },
-            { name: 'Swain', cost: 3, apiName: 'TFT15_Swain', traits: ['Crystal Gambit', 'Bastion'] },
+            { name: 'Senna', cost: 3, apiName: 'TFT15_Senna', traits: ['Mighty Mech', 'Executioner'] },
+            { name: 'Swain', cost: 3, apiName: 'TFT15_Swain', traits: ['Crystal Gambit', 'Bastion', 'Sorcerer'] },
             { name: 'Ziggs', cost: 3, apiName: 'TFT15_Ziggs', traits: ['The Crew', 'Strategist'] },
             { name: 'Janna', cost: 2, apiName: 'TFT15_Janna', traits: ['Crystal Gambit', 'Strategist', 'Protector'] }
         ],
         C: [
-            { name: 'TwistedFate', cost: 3, apiName: 'TFT15_TwistedFate', traits: ['Rogue Captain', 'The Crew'] },
+            { name: 'Twisted Fate', cost: 5, apiName: 'TFT15_TwistedFate', traits: ['Rogue Captain', 'The Crew'] },
             { name: 'Darius', cost: 3, apiName: 'TFT15_Darius', traits: ['Supreme Cells', 'Heavyweight'] },
             { name: 'Ashe', cost: 4, apiName: 'TFT15_Ashe', traits: ['Crystal Gambit', 'Duelist'] },
-            { name: 'Jhin', cost: 4, apiName: 'TFT15_Jhin', traits: ['Wraith', 'Sniper'] },
-            { name: 'KaiSa', cost: 4, apiName: 'TFT15_KaiSa', traits: ['Supreme Cells', 'Duelist'] },
-            { name: 'Sett', cost: 2, apiName: 'TFT15_Sett', traits: ['Soul Fighter', 'Juggernaut'] }
+            { name: 'Jhin', cost: 2, apiName: 'TFT15_Jhin', traits: ['Wraith', 'Sniper'] },
+            { name: "Kai'Sa", cost: 2, apiName: 'TFT15_KaiSa', traits: ['Supreme Cells', 'Duelist'] },
+            { name: 'Sett', cost: 4, apiName: 'TFT15_Sett', traits: ['Soul Fighter', 'Juggernaut'] }
         ],
         D: [
             { name: 'Garen', cost: 1, apiName: 'TFT15_Garen', traits: ['Battle Academia', 'Bastion'] },
@@ -288,11 +367,17 @@ const TFT_DATA = {
     },
 
     /**
-     * Get all champions from all tiers
+     * Get all champions from all cost tiers
      * @returns {Array} Array of all champions
      */
     getAllChampions() {
-        return Object.values(this.tiers).flat();
+        return [
+            ...this.champions.cost1,
+            ...this.champions.cost2,
+            ...this.champions.cost3,
+            ...this.champions.cost4,
+            ...this.champions.cost5
+        ];
     },
 
     /**
@@ -322,7 +407,19 @@ const TFT_DATA = {
      * @returns {Array} Array of champions with specified cost
      */
     getChampionsByCost(cost) {
-        return this.getAllChampions().filter(champ => champ.cost === cost);
+        return this.champions[`cost${cost}`] || [];
+    },
+
+    /**
+     * Get champions by trait
+     * @param {string} trait - Trait name
+     * @returns {Array} Array of champions with specified trait
+     */
+    getChampionsByTrait(trait) {
+        const allChamps = this.getAllChampions();
+        return allChamps.filter(champ =>
+            champ.traits.some(t => t.toLowerCase() === trait.toLowerCase())
+        );
     }
 };
 
