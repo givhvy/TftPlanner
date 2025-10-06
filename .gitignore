@@ -23,7 +23,8 @@ npm-debug.log*
 .env.local
 
 # Firebase configuration (contains API keys)
-js/firebase-config.js
+# Commented out to allow Vercel deployment
+# js/firebase-config.js
 
 # Build output (if you add build tools later)
 dist/
